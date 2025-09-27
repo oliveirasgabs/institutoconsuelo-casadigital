@@ -1,5 +1,7 @@
 **Casa Digital - Instituto Consuelo**
+
 **Atividade Semana 1**
+
 **Aluna:** Gabrielly Oliveira dos Santos
 
 # Pesquisa sobre SGBD Oracle Database
