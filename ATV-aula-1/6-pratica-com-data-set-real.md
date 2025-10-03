@@ -100,3 +100,33 @@ SELECT title, channel, view_count FROM yt_top100 LIMIT 15;
 Pedi para selecionar o titulo, canal e quantidade de visualizações das 15 primeiras músicas.
 
 ![consulta](img/segunda-consulta.png "Segunda consulta SQL")
+
+### Terceira Consulta
+
+```
+SELECT title, channel, view_count FROM yt_top100 WHERE title ILIKE '%Taylor%' ORDER BY view_count DESC;
+```
+
+Pedi para selecionar todas as musicas, canais e quantidade de visualizações de onde o nome da musica tenha "Taylor" na grafia, ordenado por ordem crescente.
+
+![consulta](img/terceira-consulta.png "Terceira consulta SQL")
+
+### Quarta Consulta
+
+```
+SELECT title, channel, view_count, duration FROM yt_top100 ORDER BY view_count DESC LIMIT 10;
+```
+
+Pedi para selecionar o título, canal, quantidade de views e duração de 10 músicas, ordenadas pelas que tem maior visualização, ou seja, o top 10 mais visualizadas.
+
+![consulta](img/quarta-consulta.png "Quarta consulta SQL")
+
+### Quinta Consulta
+
+```
+SELECT channel, count(*) AS songs FROM yt_top100 GROUP BY channel ORDER BY songs DESC, channel LIMIT 10;
+```
+
+Aqui, pedi algo com uma complexidade maior. Para contar todas as músicas de um canal, ordenando pela quantidade de músicas na ordem crescente, sendo no máximo 10 canais. Ou seja, estou contabilizando quais canais/artistas tem mais músicas dentro do database de músicas mais ouvidas de 2025.
+
+![consulta](img/quinta-consulta.png "Quinta consulta SQL")
