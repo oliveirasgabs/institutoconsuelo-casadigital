@@ -32,7 +32,7 @@ Então, usei o comando `sudo -u postgres psql` para acessar o psql, que é prati
 
 Depois de criada o banco, eu criei a tabela com o comando abaixo.
 
-```
+```sql
 CREATE TABLE yt_top100 (
   title                    TEXT,
   fulltitle                TEXT,
@@ -83,7 +83,7 @@ Logo, seguimos com as consultas.
 
 ### Primeira Consulta
 
-```
+```sql
 SELECT title, view_count, duration FROM yt_top100 LIMIT 10
 ```
 
@@ -93,7 +93,7 @@ Pedi para selecionar o titulo, quantidade de visualizações e duração das 10 
 
 ### Segunda Consulta
 
-```
+```sql
 SELECT title, channel, view_count FROM yt_top100 LIMIT 15;
 ```
 
@@ -103,7 +103,7 @@ Pedi para selecionar o titulo, canal e quantidade de visualizações das 15 prim
 
 ### Terceira Consulta
 
-```
+```sql
 SELECT title, channel, view_count FROM yt_top100 WHERE title ILIKE '%Taylor%' ORDER BY view_count DESC;
 ```
 
@@ -113,7 +113,7 @@ Pedi para selecionar todas as musicas, canais e quantidade de visualizações de
 
 ### Quarta Consulta
 
-```
+```sql
 SELECT title, channel, view_count, duration FROM yt_top100 ORDER BY view_count DESC LIMIT 10;
 ```
 
@@ -123,7 +123,7 @@ Pedi para selecionar o título, canal, quantidade de views e duração de 10 mú
 
 ### Quinta Consulta
 
-```
+```sql
 SELECT channel, count(*) AS songs FROM yt_top100 GROUP BY channel ORDER BY songs DESC, channel LIMIT 10;
 ```
 
