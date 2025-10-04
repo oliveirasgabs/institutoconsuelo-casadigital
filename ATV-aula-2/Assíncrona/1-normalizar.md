@@ -86,3 +86,26 @@ CREATE TABLE produtos (
   preco DECIMAL(10,2)
 );
 ```
+
+Agora é necessário, criar a tabela de pedidos, porém, como uma pessoa pode pedir mais de um item dentro de um pedido, essa tabela não terá a lista de produtos, apenas quem pediu, quem vendeu e a data que foi feito o pedido
+
+```sql
+CREATE TABLE pedidos (
+  pedido_id PRIMARY KEY,
+  cliente_id INT NOT NULL REFERENCES clientes(cliente_id),
+  vendedor_id INT NOT NULL REFERENCES vendedores(vendedor_id),
+  data_pedido DATE DEFAULT CURRENT_DATE
+);
+```
+
+Para finalizar, criamos a tabela que irá associar cada id de um produto que foi pedido a um id de pedido, além de podermos tambem guardar o preço historico do produto no momento que ele foi comprado
+
+```sql
+CREATE TABLE itens_pedido (
+  item_pedido_id PRIMARY KEY,
+  pedido_id INT NOT NULL REFERENCES pedidos(pedido_id),
+  produto_id INT NOT NULL REFERENCES produtos(produto_id),
+  quantidade INT NOT NULL CHECK (quantidade > 0),
+  preco_unitario DECIMAL(10,2) NOT NULL CHECK (preco_unitario >=0)
+);
+```
